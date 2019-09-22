@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <malloc.h>
+#include <stdlib.h>
+
+void printArray(int, int*);
+
+int main(){
+	int *arr;
+	int numOfElem;
+	int buffer = 0;
+	system("clear");
+	printf("Enter number of elements: ");
+  	scanf("%d", &numOfElem);
+  	arr = (int*)malloc(numOfElem * sizeof(int));
+  	for (int i = 0; i< numOfElem; i++){
+    	printf("arr[%d] = ", i);
+    	scanf("%d", &arr[i]);
+  	}
+	printf("\n\nInput: ");
+	printArray(numOfElem, arr);
+	for(int j = 0; j < numOfElem; j++){
+		for(int i = 0; i < numOfElem - 1; i++){  
+			if(arr[i]<arr[i+1]){
+				buffer = arr[i];
+				arr[i] = arr[i+1];
+				arr[i+1] = buffer;
+			}
+		}
+	}
+	printf("\nOutput: ");
+	printArray(numOfElem, arr);
+	printf("\n\n\nPress Enter to exit...");
+	getchar();
+	free(arr);
+	return (0);
+}
+void printArray(int numOfElem, int arr[]){
+	for(int i = 0; i < numOfElem; i++){
+		printf("%d ", arr[i]);
+	}
+}
