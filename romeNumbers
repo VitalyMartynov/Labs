@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+
+int main(int argc, char* argv[])
+{
+	if(argc == 1){
+		printf("\n1	 I	лат. unus, unum\n");
+		printf("5	 V	лат. quinque\n");
+		printf("10	 X	лат. decem\n");
+		printf("50	 L	лат. quinquaginta\n");
+		printf("100	 C	лат. centum\n");
+		printf("500	 D	лат. quingent\n");
+		printf("1000     M      лат. mille\n");
+		exit(0);
+	}
+    int buffer = 0;
+    int slog   = 0;
+  
+    for(int i = 0; i < strlen(argv[1]); i++){
+
+    	switch(argv[1][i]){
+    		case 'I': 
+    			slog = 1;
+    			buffer = buffer + slog;
+    			break;
+    		case 'V':
+    			slog = 5;
+    			buffer = buffer + slog;
+    			break;
+    		case 'X':
+    			slog = 10;
+    			buffer = buffer + slog;
+    			break;
+    		case 'L':
+    			slog = 50;
+    			buffer = buffer + slog;
+    			break;
+    		case 'C':
+    			slog = 100;
+    			buffer = buffer + slog;
+    			break;
+    		case 'D':
+    			slog = 500;
+    			buffer = buffer + slog;
+    			break;
+    		case 'M':
+    			slog = 1000;
+    			buffer = buffer + slog;
+    			break;
+    		default:
+    			printf("Symbol Error\n");
+    			break;
+    	}
+    }
+
+    printf("\nNumber is %d\n", buffer);
+    return 0;
+}
